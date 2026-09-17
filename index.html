@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guia do Síndico — Gestão de Condomínios do Litoral</title>
+<meta name="description" content="Ferramentas e boas práticas para síndicos do litoral: maresia, temporada, inadimplência e assembleia.">
+<style>body{font-family:system-ui;margin:0;background:#eff6ff;color:#1e3a8a}header{background:linear-gradient(135deg,#1e40af,#3b82f6);color:#fff;padding:2rem 1rem;text-align:center}header a{color:#bfdbfe}main{max-width:760px;margin:1.5rem auto;padding:0 1rem}.card{background:#fff;border-radius:12px;padding:1.2rem;margin:1rem 0;box-shadow:0 2px 8px rgba(59,130,246,.15)}details{border:1px solid #bfdbfe;border-radius:10px;padding:.8rem;margin:.5rem 0}summary{font-weight:700;cursor:pointer;color:#1e40af}input{font-size:1rem;padding:.55rem;border-radius:8px;border:1px solid #93c5fd;width:100%;box-sizing:border-box;margin:.25rem 0}button{background:#2563eb;color:#fff;border:0;border-radius:8px;padding:.6rem;font-weight:700;cursor:pointer;width:100%}label{font-size:.9rem;font-weight:600}.big{font-size:1.7rem;font-weight:800;text-align:center;color:#1e40af}footer{text-align:center;font-size:.85rem;padding:2rem 1rem;color:#1e40af}.net{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:.8rem}.net a{background:#dbeafe;color:#1e40af;padding:.3rem .6rem;border-radius:999px;text-decoration:none;font-size:.8rem}</style>
+</head>
+<body>
+<header><h1>🏢 Guia do Síndico</h1><p>Gestão de condomínio de praia sem dor de cabeça: maresia, temporada e inadimplência.</p><a href="https://praia.digital">← praia.digital</a> · <a href="https://praia.digital/apps">Hub de apps</a></header>
+<main>
+<div class="card"><h3>🧮 Calculadora de fundo de reserva</h3>
+<label>Arrecadação mensal total (R$)</label><input id="arr" type="number" value="28000">
+<label>Unidades do condomínio</label><input id="un" type="number" value="48">
+<button onclick="calc()">Calcular meta do fundo</button><div class="big" id="res"></div></div>
+<div class="card"><h3>📚 Guias rápidos</h3>
+<details><summary>Maresia: plano de manutenção preventiva</summary><p>Trimestral: esquadrias e dobradiças (lubrificação anticorrosiva). Semestral: fachada e guarda-corpos. Anual: impermeabilização de laje e pintura parcial. Reserve 12–18% da arrecadação para maresia.</p></details>
+<details><summary>Temporada: regras que funcionam</summary><p>Regulamento de locação de curta temporada aprovado em assembleia, cadastro prévio de hóspedes, multa por festa e portaria com lista de convidados. Ferramentas do anfitrião: <a href="https://praia.digital/checklist-anfitriao">Checklist</a> e <a href="https://praia.digital/concierge-ia">Concierge IA</a>.</p></details>
+<details><summary>Inadimplência: régua de cobrança</summary><p>D+5: lembrete automático · D+15: boleto atualizado · D+30: cartório/advogado · Meta: manter abaixo de 10%. Inadimplência alta derruba o valor das unidades — veja no <a href="https://praia.digital/condominio-check">Condomínio Check</a>.</p></details>
+<details><summary>Assembleia sem stress</summary><p>Edital com 10 dias, pauta com no máximo 5 itens, votação registrada em ata e QR de prestação de contas mensal no mural.</p></details></div>
+</main>
+<footer><b>Rede Praia Digital</b><div class="net"><a href="https://praia.digital/apps">Hub</a><a href="https://praia.digital/condometro">Condômetro</a><a href="https://praia.digital/juridico-facil">Jurídico Fácil</a><a href="https://praia.digital/seguro-praia">Seguro Praia</a><a href="https://praia.digital/reforma-inteligente">Reforma Inteligente</a><a href="https://praia.digital/heranca-praia">Herança Praia</a></div><p>© 2026 Praia Digital</p></footer>
+<script>
+function calc(){
+ const a=+document.getElementById('arr').value,u=+document.getElementById('un').value;
+ const meta=Math.round(a*12*0.12),mare=Math.round(a*12*0.15);
+ document.getElementById('res').innerHTML='Meta: R$ '+meta.toLocaleString('pt-BR')+'/ano de fundo<br><small>+ R$ '+mare.toLocaleString('pt-BR')+'/ano para maresia ≈ R$ '+Math.round((meta+mare)/u).toLocaleString('pt-BR')+'/unidade/mês</small>';
+}
+</script>
+</body>
+</html>
